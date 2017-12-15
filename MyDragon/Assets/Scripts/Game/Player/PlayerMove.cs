@@ -16,6 +16,6 @@ public class PlayerMove : MonoBehaviour {
 
     private void DoMove(int x, int y)
     {
-        Debug.Log(x + y);
+        Debug.Log(x.ToString() + y);
     }
 }
