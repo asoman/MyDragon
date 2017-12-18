@@ -7,7 +7,7 @@ using Lean.Touch;
 public class SwipeEventListener : MonoBehaviour
 {
 
-    public delegate void SwipeAction(int x, int y);
+    public delegate void SwipeAction(Vector2 gridMove);
     public static event SwipeAction Swipe;
 
     void Start()
@@ -27,22 +27,22 @@ public class SwipeEventListener : MonoBehaviour
 
         if (swipe.x < -Mathf.Abs(swipe.y))
         {
-            Swipe(-1, 0);
+            Swipe(new Vector2(-1,0));
         }
 
         if (swipe.x > Mathf.Abs(swipe.y))
         {
-            Swipe(1, 0);
+            Swipe(new Vector2(1, 0));
         }
 
         if (swipe.y < -Mathf.Abs(swipe.x))
         {
-            Swipe(0, -1);
+            Swipe(new Vector2(0, -1));
         }
 
         if (swipe.y > Mathf.Abs(swipe.x))
         {
-            Swipe(0, 1);
+            Swipe(new Vector2(0, 1));
         }
     }
 }

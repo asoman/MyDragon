@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
+    private Vector2 currentGridPos;
+
     private void OnEnable()
     {
+        currentGridPos = new Vector2(0, 0);
         SwipeEventListener.Swipe += DoMove;
     }
 
@@ -14,8 +17,10 @@ public class PlayerMove : MonoBehaviour {
         SwipeEventListener.Swipe -= DoMove;
     }
 
-    private void DoMove(int x, int y)
+    private void DoMove(Vector2 gridMove)
     {
-        Debug.Log(x.ToString() + y);
+        currentGridPos += gridMove;
+        currentGridPos.x = Mathf.Clamp(currentGridPos.x, -1, 1);
+        currentGridPos.y = Mathf.Clamp(currentGridPos.y, -1, 1);
     }
 }
