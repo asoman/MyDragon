@@ -27,22 +27,22 @@ public class SwipeEventListener : MonoBehaviour
 
         if (swipe.x < -Mathf.Abs(swipe.y))
         {
-            Swipe(new Vector2(-1,0));
+            Swipe(new Vector2(1,0));
         }
 
         if (swipe.x > Mathf.Abs(swipe.y))
         {
-            Swipe(new Vector2(1, 0));
+            Swipe(new Vector2(-1, 0));
         }
 
         if (swipe.y < -Mathf.Abs(swipe.x))
         {
-            Swipe(new Vector2(0, -1));
+            Swipe(new Vector2(0, 1));
         }
 
         if (swipe.y > Mathf.Abs(swipe.x))
         {
-            Swipe(new Vector2(0, 1));
+            Swipe(new Vector2(0, -1));
         }
     }
 }
